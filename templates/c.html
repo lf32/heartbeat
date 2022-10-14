@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block body %}
+  <form class="box columns" id="c-form" method="POST">
+  <ul class="column is-one-third panel px-0 is-shadowless">
+    <h3 class="panel-heading title is-size-4 p-3 mb-1 has-background-dark has-text-white">Pick a Tool Mortie!</h3>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="b64e" name="crypto">
+        From Base64
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="b64d"name="crypto">
+        To Base64
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="hexe" name="crypto">
+        From Hex
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="hexd"name="crypto">
+        To Hex
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="r13e" name="crypto">
+        From ROT13
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="r13d"name="crypto">
+        To ROT13
+      </label>
+    </li>
+    <button class="panel-block button is-info mt-2 is-fullwidth" type="submit">JUST DO IT.</button>
+  </ul>
+  <div class="column is-two-third">
+    <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="15" placeholder="Paste your text here."></textarea>
+    <textarea class="textarea is-primary has-fixed-size my-2" rows="15" placeholder="Your output will be here." disabled></textarea>
+  </div>
+  </form>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}
