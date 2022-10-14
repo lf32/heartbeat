@@ -9,6 +9,15 @@ This is a project focused around Capture The Flag based on flask.
 
 and more...
 
+### Local Development
+
+```bash
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+flask run
+```
+
 ### LICENSE
 
 This project is licensed under GNU General Public License v3.0

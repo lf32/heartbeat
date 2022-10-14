@@ -39,12 +39,30 @@
         <input type="radio" value="r13d"name="crypto">
         To ROT13
       </label>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="urle" name="crypto">
+        URL Encode
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="urld"name="crypto">
+        URL Decode
+      </label>
     </li>
     <button class="panel-block button is-info mt-2 is-fullwidth" type="submit">JUST DO IT.</button>
   </ul>
   <div class="column is-two-third">
-    <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="15" placeholder="Paste your text here."></textarea>
-    <textarea class="textarea is-primary has-fixed-size my-2" rows="15" placeholder="Your output will be here." disabled></textarea>
+    {{ result }}
+    {% if result %}
+      <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="10" placeholder="Paste your text here.">{{ result.text}}</textarea>
+    {% else %}
+      <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="10" placeholder="Paste your text here."></textarea>
+    {% endif %}
+    {% if result %}
+      <pre>{{ result.output}}</pre>
+    {% endif %}
   </div>
   </form>
 {% endblock %}
