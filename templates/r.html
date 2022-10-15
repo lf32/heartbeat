@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %} Rev Shell {% endblock %}
+{% block body %}
+  <form class="box columns" id="c-form" method="POST">
+  <ul class="column is-one-third panel px-0 is-shadowless">
+    <h3 class="panel-heading title is-size-4 p-3 mb-1 has-background-dark has-text-white">Pick a Tool 0day!</h3>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="b64e" name="crypto">
+        Black Magic
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="b64d"name="crypto">
+        To Base64
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="hexe" name="crypto">
+        From Hex
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="hexd"name="crypto">
+        To Hex
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="r13e" name="crypto">
+        From ROT13
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="r13d"name="crypto">
+        To ROT13
+      </label>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="urle" name="crypto">
+        URL Encode
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="radio">
+        <input type="radio" value="urld"name="crypto">
+        URL Decode
+      </label>
+    </li>
+    <button class="button mt-2 is-fullwidth" style="background: green; color: white; font-weight: bold; font-style: italic;" type="submit">Rip The Code...</button>
+  </ul>
+  <div class="column is-two-third">
+    <div class="is-flex is-flex-direction-row is-justify-content-space-between my-3 p-3">
+
+      <div class="field mx-2">
+        <label class="label">IP Address <span class="has-text-danger">*</span></label>
+        <div class="control">
+          <input class="input" type="text" name="ip" placeholder="10.10.10.10">
+        </div>
+      </div>
+
+      <div class="field mx-2">
+        <label class="label">Port <span class="has-text-danger">*</span></label>
+        <div class="control">
+          <input class="input" type="number" name="port" placeholder="9001">
+        </div>
+      </div>
+
+      <div class="field mx-2">
+        <label class="label">Listener</label>
+        <div class="control">
+          <div class="select is-normal">
+            <select>
+              <option>nc</option>
+              <option>ncat</option>
+              <option>ncat.exe</option>
+              <option>ncat (TLS)</option>
+              <option>rlwrap + nc</option>
+              <option>rustcat</option>
+              <option>rustcat + Command History</option>
+              <option>pwncat</option>
+              <option>windows ConPty</option>
+              <option>socat</option>
+              <option>socat (TTY)</option>
+              <option>powercat</option>
+              <option>msfconsole</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    {{ result }}
+    {% if result %}
+      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here.">{{ result.text}}</textarea>
+    {% else %}
+      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here."></textarea>
+    {% endif %}
+    {% if result %}
+      <pre>{{ result.output}}</pre>
+    {% endif %}
+  </div>
+  </form>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}

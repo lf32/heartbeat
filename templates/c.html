@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Home {% endblock %}
+{% block title %} Crpto {% endblock %}
 {% block body %}
   <form class="box columns" id="c-form" method="POST">
   <ul class="column is-one-third panel px-0 is-shadowless">
@@ -51,14 +51,14 @@
         URL Decode
       </label>
     </li>
-    <button class="panel-block button is-info mt-2 is-fullwidth" type="submit">JUST DO IT.</button>
+    <button class="button mt-2 is-fullwidth" style="background: blueviolet; color: white; font-weight: bold; font-style: italic;" type="submit">Rip The Code...</button>
   </ul>
   <div class="column is-two-third">
     {{ result }}
     {% if result %}
-      <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="10" placeholder="Paste your text here.">{{ result.text}}</textarea>
+      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here.">{{ result.text}}</textarea>
     {% else %}
-      <textarea class="textarea is-primary has-fixed-size my-2" name="text_input" type="text" rows="10" placeholder="Paste your text here."></textarea>
+      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here."></textarea>
     {% endif %}
     {% if result %}
       <pre>{{ result.output}}</pre>

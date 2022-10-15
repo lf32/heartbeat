@@ -7,7 +7,7 @@ def b64e(s):
     return base64.b64encode(s.encode()).decode()
 
 def b64d(s):
-    return base64.b64decode(s).decode()
+    return str(base64.urlsafe_b64decode(s), "utf-8")
 
 def hexe(s):
     pass

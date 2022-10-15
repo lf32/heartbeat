@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %} Stego {% endblock %}
+{% block body %}
+  <form class="box columns" id="c-form" method="POST">
+  <ul class="column is-one-third panel px-0 is-shadowless">
+    <h3 class="panel-heading title is-size-4 p-3 mb-1 has-background-dark has-text-white">Pick a Tool Elliot!</h3>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Apply All
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        zsteg
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Steghide
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Outguess
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Exiftool
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Binwalk
+      </label>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Foremost
+      </label>
+    </li>
+    <li class="panel-block sub-title is-size-6 p-3 my-0">
+      <label class="checkbox">
+        <input type="checkbox">
+        Strings
+      </label>
+    </li>
+    <button class="button mt-2 is-fullwidth" style="background: darkred; color: white; font-weight: bold; font-style: italic;" type="submit">Rip The File...</button>  </ul>
+  <div class="column is-two-third">
+    {{ result }}
+    {% if result %}
+      
+    {% else %}
+      <div class="file has-name is-fullwidth">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name"></span>
+        </label>
+      </div>
+    {% endif %}
+    {% if result %}
+      <pre>{{ result.output}}</pre>
+    {% endif %}
+  </div>
+  </form>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    const fileInput = document.querySelector('.file-input');
+    fileInput.onchange = updateFile;
+
+    function updateFile() {
+      const fileName = document.querySelector('.file-name');
+      if (fileInput.files.length > 0) {
+        fileName.classList.remove('is-hidden')
+        fileName.innerHTML = fileInput.files[0].name;
+      }
+    }
+  </script>
+{% endblock %}
