@@ -1,67 +1,24 @@
 {% extends 'base.html' %}
 {% block title %} Crpto {% endblock %}
 {% block body %}
-  <form class="box columns" id="c-form" method="POST">
+  <form class="box columns" id="c-form" method="POST" action="/c">
+    {{ form.csrf_token }}
   <ul class="column is-one-third panel px-0 is-shadowless">
     <h3 class="panel-heading title is-size-4 p-3 mb-1 has-background-dark has-text-white">Pick a Tool Mortie!</h3>
+    {% for choice in form.choices %}
     <li class="panel-block sub-title is-size-6 p-3 my-0">
       <label class="radio">
-        <input type="radio" value="b64e" name="crypto">
-        From Base64
+        {{ choice }}
+        {{ choice.label }}
       </label>
     </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="b64d"name="crypto">
-        To Base64
-      </label>
-    </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="hexe" name="crypto">
-        From Hex
-      </label>
-    </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="hexd"name="crypto">
-        To Hex
-      </label>
-    </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="r13e" name="crypto">
-        From ROT13
-      </label>
-    </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="r13d"name="crypto">
-        To ROT13
-      </label>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="urle" name="crypto">
-        URL Encode
-      </label>
-    </li>
-    <li class="panel-block sub-title is-size-6 p-3 my-0">
-      <label class="radio">
-        <input type="radio" value="urld"name="crypto">
-        URL Decode
-      </label>
-    </li>
-    <button class="button mt-2 is-fullwidth" style="background: blueviolet; color: white; font-weight: bold; font-style: italic;" type="submit">Rip The Code...</button>
+    {% endfor %}
+    <input type="submit" class="button mt-2 is-fullwidth" style="background: blueviolet; color: white; font-weight: bold; font-style: italic;">
   </ul>
   <div class="column is-two-third">
-    {{ result }}
+    {{ form.text(class="textarea is-primary has-fixed-size mb-2", rows="10") }}
     {% if result %}
-      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here.">{{ result.text}}</textarea>
-    {% else %}
-      <textarea class="textarea is-primary has-fixed-size mb-2" name="text_input" type="text" rows="10" placeholder="Paste your text here."></textarea>
-    {% endif %}
-    {% if result %}
-      <pre>{{ result.output}}</pre>
+      <pre>{{ result.output }}</pre>
     {% endif %}
   </div>
   </form>

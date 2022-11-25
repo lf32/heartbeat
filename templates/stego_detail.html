@@ -1,0 +1,7 @@
+<div class="">
+  {% if result.output %}
+  <h1 class="title is-size-5 talbe"><tr>Uploaded file is</tr> <td><code>{{ result.output.file_name }}</code></td></tr></h1>
+  <h1 class="title is-size-5">Hash of the file</h1>
+  <pre>{{ result.output.hash_file }}</pre>
+  {% endif %}
+</div>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block title %} Home {% endblock %}
+{% block title %} Awesome CTF Resources {% endblock %}
 {% block body %}
-  <div class="columns">
+<div class="columns">
   <ul class="column is-one-third">
     <li class="card-header title is-size-4 p-5 my-4  has-background-white has-text-black">
       <a href="/r" style="color: green;">Reverse Shell Generator</a>
@@ -21,13 +21,10 @@
   </ul>
   <div class="column is-two-third">
     <div class="box card-content my-4 has-background-white has-text-black">
-      <h1 class="title is-size-1">Capture.The.Flag.</h1>
-      <h2 class="sub-title is-size-6">Capture the Flag (CTF) in computer security is an exercise in which "flags" are secretly hidden in purposefully-vulnerable programs or websites. Competitors steal flags either from other competitors (attack/defense-style CTFs) or from the organizers (jeopardy-style challenges). Several variations exist, including hiding flags in hardware devices. Competitions exist both online and in-person, and can be advanced or entry-level. The game is based on the traditional outdoor sport of the same name. </h2>
-      <br>
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8ev9ZX9J45A" title="What is Capture The Flag?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     {{ result.text|safe }}
     </div>
   </div>
-  </div>
+</div>
 {% endblock %}
 
 {% block style %}

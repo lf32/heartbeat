@@ -1,4 +1,5 @@
 import base64
+import binascii
 import codecs
 from urllib.parse import urlencode
 from urllib.parse import unquote
@@ -6,11 +7,11 @@ from urllib.parse import unquote
 def b64e(s):
     return base64.b64encode(s.encode()).decode()
 
-def b64d(s):
-    return str(base64.urlsafe_b64decode(s), "utf-8")
+def b64d(s, altchars=None, validate=False):
+    return base64.decode(s)
 
 def hexe(s):
-    pass
+    return hex(s)
 
 def hexd(s):
     pass
