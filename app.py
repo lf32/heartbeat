@@ -10,7 +10,7 @@ import time
 
 from flask import Flask, render_template, request, jsonify, \
     send_from_directory, redirect, url_for, make_response, Response
-from tools.stegnography import file_ripper
+#from tools.stegnography import file_ripper
 from werkzeug.utils import secure_filename
 from forms import cForm, sForm
 
